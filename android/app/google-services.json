@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "146851567269",
+    "project_id": "note-demo-cb0de",
+    "storage_bucket": "note-demo-cb0de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146851567269:android:cd27487673b783f4aa5f4c",
+        "android_client_info": {
+          "package_name": "co.timchi.flutternotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_FzREzxnaOFNYH5Pq0ZrVT0UIM64ptfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
