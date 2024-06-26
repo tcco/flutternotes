@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutternotes/firebase_options.dart';
+import 'dart:developer' as devtools show log;
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -68,11 +69,11 @@ class _RegisterViewState extends State<RegisterView> {
                           email: email,
                           password: password,
                         );
-                        print(userCredential);
+                        devtools.log(userCredential.toString());
                       } on FirebaseAuthException catch (e) {
                         // Handle error
-                        print("[x] registration error");
-                        print(e.code);
+                        devtools.log("[x] registration error");
+                        devtools.log(e.code);
                         ScaffoldMessenger.of(context)
                             .showSnackBar(SnackBar(content: Text(e.code)));
                       }
