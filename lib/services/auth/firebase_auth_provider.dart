@@ -1,8 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutternotes/firebase_options.dart';
 import 'package:flutternotes/services/auth/auth_exceptions.dart';
 import 'package:flutternotes/services/auth/auth_provider.dart';
 import 'package:flutternotes/services/auth/auth_user.dart';
 
-import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, FirebaseAuthException;
+import 'package:firebase_auth/firebase_auth.dart'
+    show FirebaseAuth, FirebaseAuthException;
 
 class FirebaseAuthProvider implements AuthProvider {
   @override
@@ -59,7 +62,10 @@ class FirebaseAuthProvider implements AuthProvider {
         throw UserNotLoggedInAuthException();
       }
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'invalid-credentials') {
+      print('[-]');
+      print(e.code);
+      print(e.code);
+      if (e.code == 'invalid-credential') {
         throw InvalidCredentialsException();
       } else {
         throw GenericAuthException();
@@ -87,5 +93,12 @@ class FirebaseAuthProvider implements AuthProvider {
     } else {
       throw UserNotLoggedInAuthException();
     }
+  }
+
+  @override
+  Future<void> initialize() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }
