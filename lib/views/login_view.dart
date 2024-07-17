@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutternotes/constants/routes.dart';
 import 'package:flutternotes/services/auth/auth_exceptions.dart';
 import 'package:flutternotes/services/auth/auth_service.dart';
-import 'package:flutternotes/utilities/show_error_dialog.dart';
+import 'package:flutternotes/utilities/dialogs/error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -62,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
               final password = _password.text;
               try {
                 await AuthService.firebase().logIn(
-                   email,
+                  email,
                   password,
                 );
                 final user = AuthService.firebase().currentUser;
