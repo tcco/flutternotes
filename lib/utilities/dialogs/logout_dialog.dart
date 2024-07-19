@@ -8,7 +8,7 @@ Future<bool> showLogOutDialog(
     context: context,
     title: 'Logout?',
     content: 'Are you sure you want to logout?',
-    optionBuilder: () {
+    optionsBuilder: () {
       return {'Cancel': false, 'Log out': true};
     },
   ).then(

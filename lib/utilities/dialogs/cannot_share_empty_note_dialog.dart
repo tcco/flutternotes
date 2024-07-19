@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutternotes/utilities/dialogs/generic_dialog.dart';
 
-Future<void> showErrorDialog(
-  BuildContext context,
-  String text,
-) {
-  return showGenericDialog(
+Future<void> showCannotShareEmptyNoteDialog(BuildContext context) {
+  return showGenericDialog<void>(
     context: context,
-    title: 'An error occurred',
-    content: text,
+    title: 'Sharing',
+    content: 'You cannot share an empty note!',
     optionsBuilder: () {
       return {'OK': null};
     },
