@@ -87,10 +87,10 @@ class MockAuthProvider implements AuthProvider {
   bool get isInitialized => _isInitialized;
 
   @override
-  Future<AuthUser> createUser(
-    String email,
-    String password,
-  ) async {
+  Future<AuthUser> createUser({
+    required String email,
+    required String password,
+  }) async {
     if (!isInitialized) throw NotInitializedException();
     await Future.delayed(const Duration(seconds: 1));
     return logIn(email, password);
@@ -106,10 +106,10 @@ class MockAuthProvider implements AuthProvider {
   }
 
   @override
-  Future<AuthUser> logIn(
-    String email,
-    String password,
-  ) {
+  Future<AuthUser> logIn({
+    required String email,
+    required String password,
+  }) {
     if (!isInitialized) throw NotInitializedException();
     if (email == 'foo@bar.com') throw InvalidCredentialsException();
     if (password == 'foobar') throw GenericAuthException();
@@ -140,5 +140,10 @@ class MockAuthProvider implements AuthProvider {
       email: 'foo@bar.com',
     );
     _user = newUser;
+  }
+
+  @override
+  Future<void> sendPasswordReset({required String toEmail}) {
+    throw UnimplementedError();
   }
 }
